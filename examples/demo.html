@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ai-ui.fscss — Copilot Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fscss@1.2.6/runtime.min.js" defer></script>
+  <style>
+  @import((*) from "../ai-ui.fscss")
+    /* ===== composition ===== */
+
+@ai-compose-copilot()
+@ai-shell(.ai-shell)
+@ai-sidebar(.ai-sidebar)
+@ai-main(.ai-main)
+@ai-messages(.ai-messages)
+@ai-message(.ai-message)
+@ai-message-user(.ai-message-user)
+@ai-message-assistant(.ai-message-assistant)
+@ai-bubble(.ai-bubble)
+@ai-avatar(.ai-avatar)
+@ai-prompt(.ai-prompt)
+@ai-prompt-box(.ai-prompt-box)
+@ai-prompt-send(.ai-prompt-send)
+@ai-stream(.ai-stream)
+@ai-thinking(.ai-thinking)
+@ai-artifacts(.ai-artifacts)
+@ai-artifact-header(.ai-artifact-header)
+@ai-artifact-body(.ai-artifact-body)
+@ai-tools(.ai-tools)
+@ai-tool-chip(.ai-tool-chip)
+@ai-citations(.ai-citations)
+@ai-citation(.ai-citation)
+@ai-usage(.ai-usage)
+@ai-stat(.ai-stat)
+
+
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.ai-sidebar h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ai-text-muted);
+  margin: 0 0 8px;
+}
+.conv {
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--ai-text-muted);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.conv.is-active {
+  background: var(--ai-accent-dim);
+  color: var(--ai-text);
+}
+.ai-prompt-send { font-size: 1.1rem; line-height: 1; }
+
+  </style>
+</head>
+<body>
+
+  <div class="ai-shell">
+    <aside class="ai-sidebar">
+      <h2>Conversations</h2>
+      <div class="conv is-active">Order tracking flow</div>
+      <div class="conv">RAG hallucination tips</div>
+      <div class="conv">Budget summary</div>
+      <div style="flex:1"></div>
+      <div class="ai-usage" style="grid-template-columns:1fr">
+        <div class="ai-stat">
+          <span class="ai-stat-label">Tokens today</span>
+          <span class="ai-stat-value">48.2k</span>
+          <span class="ai-stat-delta up">+12%</span>
+        </div>
+      </div>
+    </aside>
+    <main class="ai-main">
+      <div class="ai-messages">
+        <div class="ai-message ai-message-user">
+          <div class="ai-avatar">U</div>
+          <div class="ai-bubble">Please track my order with order id 12389</div>
+        </div>
+        <div class="ai-message ai-message-assistant">
+          <div class="ai-avatar">AI</div>
+          <div>
+            <div class="ai-tools">
+              <span class="ai-tool-chip is-done">✓ Search</span>
+              <span class="ai-tool-chip is-done">✓ Read</span>
+              <span class="ai-tool-chip is-running">● Generate</span>
+            </div>
+            <div class="ai-bubble ai-stream" style="margin-top:10px">Your order with ID 12389 is currently “Out for Delivery.” If you have any other questions or need further assistance, feel free to ask!</div>
+            <div class="ai-citations">
+              <a class="ai-citation" href="#"><span class="ai-cite-num">1</span> tracking.api</a>
+              <a class="ai-citation" href="#"><span class="ai-cite-num">2</span> carrier status</a>
+            </div>
+          </div>
+        </div>
+        <div class="ai-message ai-message-assistant">
+          <div class="ai-avatar">AI</div>
+          <div class="ai-thinking">
+            <span class="ai-dot"></span>
+            <span class="ai-dot"></span>
+            <span class="ai-dot"></span>
+            Thinking…
+          </div>
+        </div>
+        <div class="ai-message ai-message-assistant">
+          <div class="ai-avatar">AI</div>
+          <div class="ai-artifacts">
+            <div class="ai-artifact-header">
+              <span>status.json</span>
+              <span>JSON</span>
+            </div>
+            <div class="ai-artifact-body">{
+  "orderId": "12389",
+  "status": "Out for Delivery",
+  "eta": "2026-10-27T18:00:00Z"
+}</div>
+          </div>
+        </div>
+      </div>
+      <form class="ai-prompt" onsubmit="return false">
+        <textarea class="ai-prompt-box" placeholder="Ask a follow-up…" rows="1"></textarea>
+        <button class="ai-prompt-send" type="submit" aria-label="Send">↑</button>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>
