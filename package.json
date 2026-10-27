@@ -1,0 +1,95 @@
+{
+  "name": "ai-ui",
+  "version": "1.0.0",
+  "description": "The AI Interface Design System for FSCSS \u2014 pure-CSS presentation layer for prompts, streams, messages, thinking, citations, artifacts, workflows, and usage dashboards. One composition, multiple AI interface styles.",
+  "extension": "fscss",
+  "fscss_version": ">=1.2.6",
+  "engines": {
+    "fscss": ">=1.2.6"
+  },
+  "blocked_methods": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fscss-ttr/ai-ui.fscss"
+  },
+  "bugs": {
+    "url": "https://github.com/fscss-ttr/ai-ui.fscss/issues"
+  },
+  "homepage": "https://github.com/fscss-ttr/ai-ui.fscss#readme",
+  "file": {
+    "usage": {
+      "directive": "ai-*",
+      "helpers": [
+        "ai-root(root:root)",
+        "ai-theme-minimal(root:root)",
+        "ai-theme-copilot(root:root)",
+        "ai-theme-research(root:root)",
+        "ai-theme-support(root:root)",
+        "ai-theme-dashboard(root:root)",
+        "ai-compose-minimal(root:root)",
+        "ai-compose-copilot(root:root)",
+        "ai-compose-research(root:root)",
+        "ai-compose-support(root:root)",
+        "ai-compose-dashboard(root:root)",
+        "ai-shell(sel:.ai-shell)",
+        "ai-sidebar(sel:.ai-sidebar)",
+        "ai-main(sel:.ai-main)",
+        "ai-messages(sel:.ai-messages)",
+        "ai-message(sel:.ai-message)",
+        "ai-message-user(sel:.ai-message-user)",
+        "ai-message-assistant(sel:.ai-message-assistant)",
+        "ai-bubble(sel:.ai-bubble)",
+        "ai-avatar(sel:.ai-avatar)",
+        "ai-prompt(sel:.ai-prompt)",
+        "ai-prompt-box(sel:.ai-prompt-box)",
+        "ai-prompt-send(sel:.ai-prompt-send)",
+        "ai-stream(sel:.ai-stream)",
+        "ai-thinking(sel:.ai-thinking)",
+        "ai-citations(sel:.ai-citations)",
+        "ai-citation(sel:.ai-citation)",
+        "ai-artifacts(sel:.ai-artifacts)",
+        "ai-artifact-header(sel:.ai-artifact-header)",
+        "ai-artifact-body(sel:.ai-artifact-body)",
+        "ai-workflow(sel:.ai-workflow)",
+        "ai-node(sel:.ai-node)",
+        "ai-edge(sel:.ai-edge)",
+        "ai-usage(sel:.ai-usage)",
+        "ai-stat(sel:.ai-stat)",
+        "ai-tools(sel:.ai-tools)",
+        "ai-tool-chip(sel:.ai-tool-chip)",
+        "ai-card(sel:.ai-card)",
+        "ai-divider(sel:.ai-divider)",
+        "ai-scroll-fade(sel:.ai-scroll-fade)"
+      ]
+    },
+    "modules": [
+      "./ai-ui.fscss"
+    ],
+    "remote": "./ai-ui.fscss"
+  },
+  "xfcmd": {
+    "enable": "./xfcmds/enable.xfcmd",
+    "disable": "./xfcmds/disable.xfcmd"
+  },
+  "author": {
+    "name": "fscss-ttr",
+    "url": "https://github.com/fscss-ttr"
+  },
+  "keywords": [
+    "fscss",
+    "css",
+    "ai-ui",
+    "ai-interface",
+    "chat-ui",
+    "design-system",
+    "prompt",
+    "streaming",
+    "citations",
+    "artifacts",
+    "workflow",
+    "dashboard",
+    "pure-css",
+    "module"
+  ],
+  "license": "MIT"
+}
