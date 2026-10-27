@@ -1,0 +1,31 @@
+/* Example: Developer Copilot composition
+   Open examples/demo.html for a runnable page (module inlined for file://).
+   CLI / HTTP: @import((*) from "../ai-ui.fscss")
+*/
+@import((*) from "../ai-ui.fscss")
+
+@ai-compose-copilot()
+
+@ai-shell(.ai-shell)
+@ai-sidebar(.ai-sidebar)
+@ai-main(.ai-main)
+@ai-messages(.ai-messages)
+@ai-message(.ai-message)
+@ai-message-user(.ai-message-user)
+@ai-message-assistant(.ai-message-assistant)
+@ai-bubble(.ai-bubble)
+@ai-avatar(.ai-avatar)
+@ai-prompt(.ai-prompt)
+@ai-prompt-box(.ai-prompt-box)
+@ai-prompt-send(.ai-prompt-send)
+@ai-stream(.ai-stream)
+@ai-thinking(.ai-thinking)
+@ai-artifacts(.ai-artifacts)
+@ai-artifact-header(.ai-artifact-header)
+@ai-artifact-body(.ai-artifact-body)
+@ai-tools(.ai-tools)
+@ai-tool-chip(.ai-tool-chip)
+@ai-citations(.ai-citations)
+@ai-citation(.ai-citation)
+@ai-usage(.ai-usage)
+@ai-stat(.ai-stat)

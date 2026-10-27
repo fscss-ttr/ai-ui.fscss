@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ai-ui.fscss — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link type="fscss" href="dashboard-depth.fscss">
+  <script src="https://cdn.jsdelivr.net/npm/fscss@1.2.6/runtime.min.js" defer></script>
+
+
+</head>
+<body>
+
+  <div class="ai-shell">
+    <aside class="ai-sidebar">
+      <h2>Agents</h2>
+      <div class="ai-tools" style="flex-direction:column;align-items:stretch">
+        <span class="ai-tool-chip is-running">● Ingest</span>
+        <span class="ai-tool-chip is-done">✓ Rank</span>
+        <span class="ai-tool-chip is-done">✓ Notify</span>
+      </div>
+      <div style="flex:1"></div>
+      <div class="ai-usage" style="grid-template-columns:1fr">
+        <div class="ai-stat">
+          <span class="ai-stat-label">Jobs / hr</span>
+          <span class="ai-stat-value">128</span>
+          <span class="ai-stat-delta up">+8%</span>
+        </div>
+      </div>
+    </aside>
+    <main class="ai-main panel">
+      <div class="dash-grid ai-usage">
+        <div class="ai-stat">
+          <span class="ai-stat-label">Latency p50</span>
+          <span class="ai-stat-value">240ms</span>
+          <span class="ai-stat-delta down">-12%</span>
+        </div>
+        <div class="ai-stat">
+          <span class="ai-stat-label">Cost today</span>
+          <span class="ai-stat-value">$18.4</span>
+          <span class="ai-stat-delta up">+3%</span>
+        </div>
+        <div class="ai-stat">
+          <span class="ai-stat-label">Success</span>
+          <span class="ai-stat-value">98.2%</span>
+          <span class="ai-stat-delta up">+0.4%</span>
+        </div>
+      </div>
+      <div class="ai-workflow">
+        <div class="ai-node is-active">Parse</div>
+        <div class="ai-edge"></div>
+        <div class="ai-node">Retrieve</div>
+        <div class="ai-edge"></div>
+        <div class="ai-node">Generate</div>
+        <div class="ai-edge"></div>
+        <div class="ai-node">Deliver</div>
+      </div>
+      <div class="ai-card">
+        <div class="ai-message ai-message-assistant" style="max-width:none">
+          <div class="ai-avatar">AI</div>
+          <div class="ai-bubble">Pipeline healthy. 3 agents idle; queue depth 2.</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

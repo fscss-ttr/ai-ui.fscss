@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ai-ui.fscss — Research Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link type="m/fscss" href="research-workspace.fscss">
+  <script src="https://cdn.jsdelivr.net/npm/fscss@1.2.6/runtime.min.js" defer></script>
+</head>
+<body>
+
+  <div class="ai-shell">
+    <main class="ai-main">
+      <div class="ai-messages">
+        <div class="ai-message ai-message-user">
+          <div class="ai-avatar">U</div>
+          <div class="ai-bubble">Summarize the latest findings on RAG hallucination rates in production systems.</div>
+        </div>
+        <div class="ai-message ai-message-assistant">
+          <div class="ai-avatar">AI</div>
+          <div>
+            <div class="ai-thinking">
+              <span class="ai-dot"></span>
+              <span class="ai-dot"></span>
+              <span class="ai-dot"></span>
+              Searching papers…
+            </div>
+          </div>
+        </div>
+        <div class="ai-message ai-message-assistant">
+          <div class="ai-avatar">AI</div>
+          <div>
+            <div class="ai-bubble ai-stream">Across 12 production evaluations (2024–2026), grounded answer rates range from 62–89% depending on retrieval depth and citation enforcement. Systems that require inline citations before final answer cut unsupported claims by ~35%.</div>
+            <div class="ai-citations">
+              <a class="ai-citation" href="#"><span class="ai-cite-num">1</span> arXiv:2401.RAG</a>
+              <a class="ai-citation" href="#"><span class="ai-cite-num">2</span> EvalBench 2025</a>
+              <a class="ai-citation" href="#"><span class="ai-cite-num">3</span> GroundTruth Labs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="ai-prompt" onsubmit="return false">
+        <textarea class="ai-prompt-box" placeholder="Ask a research follow-up…" rows="1"></textarea>
+        <button class="ai-prompt-send" type="submit" aria-label="Send">↑</button>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>

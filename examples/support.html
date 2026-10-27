@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ai-ui.fscss — Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fscss@1.2.6/runtime.min.js" defer></script>
+  <style>
+
+@import((*) from "../ai-ui.fscss")
+/* ===== composition ===== */
+
+@ai-compose-support()
+@ai-shell(.ai-shell)
+@ai-main(.ai-main)
+@ai-messages(.ai-messages)
+@ai-message(.ai-message)
+@ai-message-user(.ai-message-user)
+@ai-message-assistant(.ai-message-assistant)
+@ai-bubble(.ai-bubble)
+@ai-avatar(.ai-avatar)
+@ai-prompt(.ai-prompt)
+@ai-prompt-box(.ai-prompt-box)
+@ai-prompt-send(.ai-prompt-send)
+@ai-tools(.ai-tools)
+@ai-tool-chip(.ai-tool-chip)
+
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.ai-shell { grid-template-columns: 1fr; }
+.ai-prompt-send { font-size: 1.1rem; line-height: 1; }
+.ai-messages { max-width: 720px; margin: 0 auto; width: 100%; }
+
+  </style>
+</head>
+<body>
+
+  <div class="ai-shell">
+    <main class="ai-main">
+      <div class="ai-messages">
+        <div class="ai-message ai-message-user">
+          <div class="ai-avatar">U</div>
+          <div class="ai-bubble">I was charged twice for last month’s invoice.</div>
+        </div>
+        <div class="ai-message ai-message-assistant">
+          <div class="ai-avatar">AI</div>
+          <div>
+            <div class="ai-tools">
+              <span class="ai-tool-chip is-done">✓ Billing lookup</span>
+              <span class="ai-tool-chip is-running">● Refund draft</span>
+            </div>
+            <div class="ai-bubble" style="margin-top:10px">I found a duplicate charge on Sep 14. I can issue a refund of $49.00 to the original card — want me to proceed?</div>
+          </div>
+        </div>
+      </div>
+      <form class="ai-prompt" onsubmit="return false">
+        <textarea class="ai-prompt-box" placeholder="Reply to support…" rows="1"></textarea>
+        <button class="ai-prompt-send" type="submit" aria-label="Send">↑</button>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>

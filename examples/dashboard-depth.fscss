@@ -1,0 +1,46 @@
+@import((*) from "../ai-ui.fscss")
+
+/* ===== composition ===== */
+
+@ai-compose-dashboard()
+@ai-shell(.ai-shell)
+@ai-sidebar(.ai-sidebar)
+@ai-main(.ai-main)
+@ai-usage(.ai-usage)
+@ai-stat(.ai-stat)
+@ai-workflow(.ai-workflow)
+@ai-node(.ai-node)
+@ai-edge(.ai-edge)
+@ai-tools(.ai-tools)
+@ai-tool-chip(.ai-tool-chip)
+@ai-card(.ai-card)
+@ai-messages(.ai-messages)
+@ai-message(.ai-message)
+@ai-message-assistant(.ai-message-assistant)
+@ai-bubble(.ai-bubble)
+@ai-avatar(.ai-avatar)
+
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.ai-sidebar h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ai-text-muted);
+  margin: 0 0 8px;
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  padding: 20px;
+}
+.panel {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
+}

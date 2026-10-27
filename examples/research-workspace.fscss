@@ -1,0 +1,27 @@
+/* Example: Research workspace — open examples/research.html */
+@import((*) from "../ai-ui.fscss")
+
+@ai-compose-research()
+
+@ai-shell(.ai-shell)
+@ai-main(.ai-main)
+@ai-messages(.ai-messages)
+@ai-message(.ai-message)
+@ai-message-user(.ai-message-user)
+@ai-message-assistant(.ai-message-assistant)
+@ai-bubble(.ai-bubble)
+@ai-avatar(.ai-avatar)
+@ai-stream(.ai-stream)
+@ai-citations(.ai-citations)
+@ai-citation(.ai-citation)
+@ai-prompt(.ai-prompt)
+@ai-prompt-box(.ai-prompt-box)
+@ai-prompt-send(.ai-prompt-send)
+@ai-thinking(.ai-thinking)
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.ai-shell { grid-template-columns: 1fr; }
+.ai-prompt-send { font-size: 1.1rem; line-height: 1; }
+.ai-messages { max-width: 800px; margin: 0 auto; width: 100%; }
