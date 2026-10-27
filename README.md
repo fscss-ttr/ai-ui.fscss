@@ -110,6 +110,12 @@ Same contract as other FSCSS modules (e.g. st-core):
 @import((*) from "https://cdn.jsdelivr.net/gh/fscss-ttr/ai-ui.fscss@main/ai-ui.fscss")
 ```
 
+Or shorten
+
+```css
+@import((*) from ai-ui)
+```
+
 Or a local path:
 
 ```css
