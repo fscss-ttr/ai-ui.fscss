@@ -1,0 +1,133 @@
+# xfcmds/enable.xfcmd
+# Runs when ai-ui is enabled in the FSCSS IDE: libck ai-ui, then yes (or libon ai-ui).
+# Docs: https://github.com/fscss-ttr/ai-ui.fscss
+say "Setting up {name}@{version} by {author}"
+say "Needs FSCSS {fscss}. Import line: @import((*) from {import})"
+add snippets for helpers
+add snippet ai-compose "ai-ui composition preset" as "@ai-compose-${1|copilot,minimal,research,support,dashboard|}()"
+add snippet ai-shell-block "ai-ui app shell" as "@ai-shell(.${1:ai-shell})\n@ai-sidebar(.${2:ai-sidebar})\n@ai-main(.${3:ai-main})\n@ai-messages(.${4:ai-messages})"
+add snippet ai-msg-user "ai-ui user message markup" as "<div class=\"ai-message ai-message-user\">\n  <div class=\"ai-avatar\">U</div>\n  <div class=\"ai-bubble\">${1:Your message}</div>\n</div>"
+add snippet ai-msg-assistant "ai-ui assistant message markup" as "<div class=\"ai-message ai-message-assistant\">\n  <div class=\"ai-avatar\">AI</div>\n  <div class=\"ai-bubble\">${1:Assistant reply}</div>\n</div>"
+add snippet ai-prompt-block "ai-ui prompt bar" as "@ai-prompt(.${1:ai-prompt})\n@ai-prompt-box(.${2:ai-prompt-box})\n@ai-prompt-send(.${3:ai-prompt-send})"
+add snippet ai-stream-think "ai-ui stream + thinking" as "@ai-stream(.${1:ai-stream})\n@ai-thinking(.${2:ai-thinking})"
+add snippet ai-cite-block "ai-ui citations" as "@ai-citations(.${1:ai-citations})\n@ai-citation(.${2:ai-citation})"
+add snippet ai-artifact-block "ai-ui artifact card" as "@ai-artifacts(.${1:ai-artifacts})\n@ai-artifact-header(.${2:ai-artifact-header})\n@ai-artifact-body(.${3:ai-artifact-body})"
+create file "ai-ui-demo/copilot.fscss" with:
+  /* ai-ui copilot demo, created by xfcmd */
+  @import((*) from {import})
+
+  @ai-compose-copilot()
+  @ai-shell(.ai-shell)
+  @ai-sidebar(.ai-sidebar)
+  @ai-main(.ai-main)
+  @ai-messages(.ai-messages)
+  @ai-message(.ai-message)
+  @ai-message-user(.ai-message-user)
+  @ai-message-assistant(.ai-message-assistant)
+  @ai-bubble(.ai-bubble)
+  @ai-avatar(.ai-avatar)
+  @ai-prompt(.ai-prompt)
+  @ai-prompt-box(.ai-prompt-box)
+  @ai-prompt-send(.ai-prompt-send)
+  @ai-stream(.ai-stream)
+  @ai-thinking(.ai-thinking)
+  @ai-tools(.ai-tools)
+  @ai-tool-chip(.ai-tool-chip)
+  @ai-citations(.ai-citations)
+  @ai-citation(.ai-citation)
+  @ai-artifacts(.ai-artifacts)
+  @ai-artifact-header(.ai-artifact-header)
+  @ai-artifact-body(.ai-artifact-body)
+  @ai-usage(.ai-usage)
+  @ai-stat(.ai-stat)
+
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .ai-sidebar h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ai-text-muted);
+    margin: 0 0 8px;
+  }
+  .conv {
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--ai-text-muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+  .conv.is-active {
+    background: var(--ai-accent-dim);
+    color: var(--ai-text);
+  }
+end
+create file "ai-ui-demo/index.html" with:
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ai-ui demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/fscss@1.2.6/runtime.min.js" defer></script>
+    <link type="fscss" href="copilot.fscss">
+  </head>
+  <body>
+    <div class="ai-shell">
+      <aside class="ai-sidebar">
+        <h2>Conversations</h2>
+        <div class="conv is-active">Order tracking</div>
+        <div class="conv">RAG tips</div>
+        <div style="flex:1"></div>
+        <div class="ai-usage" style="grid-template-columns:1fr">
+          <div class="ai-stat">
+            <span class="ai-stat-label">Tokens today</span>
+            <span class="ai-stat-value">48.2k</span>
+            <span class="ai-stat-delta up">+12%</span>
+          </div>
+        </div>
+      </aside>
+      <main class="ai-main">
+        <div class="ai-messages">
+          <div class="ai-message ai-message-user">
+            <div class="ai-avatar">U</div>
+            <div class="ai-bubble">Track order 12389</div>
+          </div>
+          <div class="ai-message ai-message-assistant">
+            <div class="ai-avatar">AI</div>
+            <div>
+              <div class="ai-tools">
+                <span class="ai-tool-chip is-done">✓ Search</span>
+                <span class="ai-tool-chip is-running">● Generate</span>
+              </div>
+              <div class="ai-bubble ai-stream" style="margin-top:10px">Out for delivery.</div>
+              <div class="ai-citations">
+                <a class="ai-citation" href="#"><span class="ai-cite-num">1</span> tracking.api</a>
+              </div>
+            </div>
+          </div>
+          <div class="ai-message ai-message-assistant">
+            <div class="ai-avatar">AI</div>
+            <div class="ai-thinking">
+              <span class="ai-dot"></span>
+              <span class="ai-dot"></span>
+              <span class="ai-dot"></span>
+              Thinking…
+            </div>
+          </div>
+        </div>
+        <form class="ai-prompt" onsubmit="return false">
+          <textarea class="ai-prompt-box" placeholder="Ask a follow-up…" rows="1"></textarea>
+          <button class="ai-prompt-send" type="submit" aria-label="Send">↑</button>
+        </form>
+      </main>
+    </div>
+  </body>
+  </html>
+end
+open file ai-ui-demo/copilot.fscss
+compile
+open file ai-ui-demo/index.html
+show preview
+say "Done. Type a helper name such as ai-compose-copilot in an .fscss file to insert its snippet."
+say "If a compile error mentions ai-ui, check the import line and your FSCSS version (≥ 1.2.6)."
