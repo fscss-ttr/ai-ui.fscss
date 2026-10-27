@@ -1,0 +1,4 @@
+# xfcmds/disable.xfcmd
+# Runs when ai-ui is disabled in the FSCSS IDE: liboff ai-ui
+say "Disabled {name}. Its helper snippets were removed."
+say "The demo in ai-ui-demo/ was kept. Delete that folder if you do not need it."
