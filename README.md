@@ -48,6 +48,8 @@ Requires FSCSS **v1.2.6+**
 
 ---
 
+![Ai-ui](/preview.jpg) 
+
 ## 1. What is ai-ui?
 
 **ai-ui.fscss** is a presentation system for AI product surfaces. It ships selector-parameterized `@define` helpers so you can compose:
